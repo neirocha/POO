@@ -1,13 +1,7 @@
 <?php
 
 require_once  "../src/Clientes/Arrayclientes.php";
- /*
-$nome = $cliente1->getNome();
-$endereco = $cliente1->getEndereco();
-$telefone = $cliente1->getTelefone();
-$email = $cliente1->getEmail();
-*/
-echo $cliente1->getNome();
+
 
 ?>
 
@@ -31,7 +25,11 @@ echo $cliente1->getNome();
 
 </head>
 <body>
+<?php
 
+print_r(var_dump($clientes));
+
+?>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
