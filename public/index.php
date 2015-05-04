@@ -1,6 +1,6 @@
 <?php
 
-require_once  "../src/Clientes/Arrayclientes.php";
+require_once  "../src/Clientes/Cliente.php";
 
 
 ?>
@@ -25,11 +25,38 @@ require_once  "../src/Clientes/Arrayclientes.php";
 
 </head>
 <body>
-<?php
 
-print_r(var_dump($clientes));
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            <?php
+            $id = filter_input(INPUT_GET, "id");
+            if($id){
+           var_dump($clientes[$id]);
+            }
+            ?>
+        </h3>
+    </div>
+    <div class="panel-body">
+        <?php
 
-?>
+        ?>
+    </div>
+</div>
+<fieldset>
+    <legend>Lista de Clientes</legend>
+    <table width="100%">
+        <?php  foreach($clientes as $cliente):    ?>
+            <tr>
+                <td>&nbsp;</td>
+                <td><label>NOME: </label><a href="?id=<?php echo "{$cliente->getId()}" ?>"><?php echo " {$cliente->getNome()}" ?></a> </td>
+                <td><label>CPF: </label><?php echo " {$cliente ->getCpf()}" ?></td>
+                <td><label>Email: </label><?php echo " {$cliente->getEmail()}" ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+</fieldset>
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
