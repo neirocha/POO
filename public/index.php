@@ -135,7 +135,7 @@ $clientes = array(1=>$cliente1,2=>$cliente2, 3=>$cliente3, 4=>$cliente4, 5=>$cli
 </div>
 
 <p>
-    <a href="?ordem=arsort" class="btn btn-"><i class="glyphicon glyphicon-circle-arrow-up"></i></a>&nbsp;<a href="?ordem=asort" class="btn btn-"><i class="glyphicon glyphicon-circle-arrow-down"></i></a>
+    <a href="?ordem=DESC" class="btn btn-"><i class="glyphicon glyphicon-circle-arrow-up"></i></a>&nbsp;<a href="?ordem=ASC" class="btn btn-"><i class="glyphicon glyphicon-circle-arrow-down"></i></a>
 </p>
 <fieldset>
     <legend>Lista de Clientes</legend>
@@ -156,10 +156,10 @@ $clientes = array(1=>$cliente1,2=>$cliente2, 3=>$cliente3, 4=>$cliente4, 5=>$cli
 /*
 
 */
-        $ordem = filter_input(INPUT_GET, "ordem");
-        if($ordem)
-        {
-            $ordem($clientes);
+
+        $ordem = filter_input(INPUT_GET, 'ordem');
+        if ($ordem == "DESC") {
+            krsort($clientes);
         }
 
         foreach($clientes as $key=> $cliente):
