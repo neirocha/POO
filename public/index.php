@@ -87,8 +87,7 @@ $cliente10->setEmail("amarok@hotmail.com");
 
 
 $clientes = array(1=>$cliente1,2=>$cliente2, 3=>$cliente3, 4=>$cliente4, 5=>$cliente5, 6=>$cliente6, 7=>$cliente7, 8=>$cliente8, 9=>$cliente9, 10=>$cliente10);
-
-
+//$clientes = array($cliente1, $cliente2, $cliente3, $cliente4, $cliente5, $cliente6, $cliente7, $cliente8, $cliente9, $cliente10);
 ?>
 
 <!DOCTYPE html>
@@ -115,22 +114,28 @@ $clientes = array(1=>$cliente1,2=>$cliente2, 3=>$cliente3, 4=>$cliente4, 5=>$cli
 <div class="panel panel-success">
     <div class="panel-heading">
         <h3 class="panel-title">
-            <?php
-            $id = filter_input(INPUT_GET, "id");
-            if($id){
-           var_dump($clientes[$id]);
-            }
-            ?>
+
         </h3>
     </div>
     <div class="panel-body">
         <?php
 
+        $id = filter_input(INPUT_GET, "id");
+        if($id){
+            echo "<label>Nome: </label> ".$clientes[$id]->getNome()."</br>";
+            echo "<label>CPF: </label> ".$clientes[$id]->getCpf()."</br>";
+            echo "<label>Endereco: </label> ".$clientes[$id]->getEndereco()."</br>";
+            echo "<label>Telefone: </label> ".$clientes[$id]->getTelefone()."</br>";
+            echo "<label>Email: </label> ".$clientes[$id]->getEmail()."</br>";
+
+        }
+
         ?>
     </div>
 </div>
+
 <p>
-    <a href=?ordem=ASC" class="btn btn-"><i class="glyphicon glyphicon-circle-arrow-up"></i></a>&nbsp;<a href="?ordem=DESC" class="btn btn-"><i class="glyphicon glyphicon-circle-arrow-down"></i></a>
+    <a href="?ordem=arsort" class="btn btn-"><i class="glyphicon glyphicon-circle-arrow-up"></i></a>&nbsp;<a href="?ordem=asort" class="btn btn-"><i class="glyphicon glyphicon-circle-arrow-down"></i></a>
 </p>
 <fieldset>
     <legend>Lista de Clientes</legend>
@@ -147,12 +152,23 @@ $clientes = array(1=>$cliente1,2=>$cliente2, 3=>$cliente3, 4=>$cliente4, 5=>$cli
             <td><label></td>
         </tr>
 
-        <?php   $ordem = filter_input(INPUT_GET, "ordem") ?: "ASC";
-        foreach($clientes as $id => $cliente):    ?>
+        <?php
+/*
+
+*/
+        $ordem = filter_input(INPUT_GET, "ordem");
+        if($ordem)
+        {
+            $ordem($clientes);
+        }
+
+        foreach($clientes as $key=> $cliente):
+
+            ?>
             <tr>
 
                 <td>&ensp;</td>
-                <td><a href="?id=<?php echo "{$cliente->getId()}" ?>"><?php echo " {$cliente->getNome()}" ?></a><hr> </td>
+                <td><?php echo "<a href='?ordem={$ordem}&id={$cliente->getId()}'>".$cliente->getNome()."</a>"; ?><hr> </td>
                 <td><?php echo " {$cliente ->getCpf()}" ?><hr></td>
                 <td><?php echo " {$cliente->getEmail()}" ?><hr></td>
             </tr>
