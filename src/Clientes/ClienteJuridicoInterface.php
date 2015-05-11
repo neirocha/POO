@@ -9,7 +9,7 @@
 interface ClienteJuridicoInterface
 {
     public function getId();
-    public function getRazao();
+    public function getRazaoSocial();
     public function getCnpj();
 
 

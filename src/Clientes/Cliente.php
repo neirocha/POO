@@ -7,7 +7,13 @@
  *
  **/
 
-class Cliente implements ClienteFisicoInterface
+require_once __DIR__."/ClienteInterface.php";
+require_once __DIR__."/EnderecoDeCobranca.php";
+require_once __DIR__."/GrauDeImportanciaInterface.php";
+
+
+
+class Cliente implements ClienteInterface, EnderecoDeCobranca, GrauDeImportanciaInterface
 {
     protected $id;
     protected $nome;
