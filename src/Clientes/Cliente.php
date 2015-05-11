@@ -4,18 +4,17 @@
  * User: Nei Rocha
  * Date: 29/04/2015
  * Time: 17:44
- */
+ *
+ **/
 
-class Cliente
+class Cliente implements ClienteFisicoInterface
 {
-
     protected $id;
     protected $nome;
     protected $cpf;
     protected $endereco;
     protected $telefone;
     protected $email;
-
 
     public function setId($id)
     {
