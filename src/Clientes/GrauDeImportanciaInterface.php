@@ -6,6 +6,7 @@
  * Time: 09:52
  */
 
-interface GrauDeImportanciaInterface {
-
+interface GrauDeImportanciaInterface
+{
+    public function getGI();
 }

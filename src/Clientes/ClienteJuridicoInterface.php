@@ -6,6 +6,11 @@
  * Time: 09:49
  */
 
-interface ClienteJuridicoInterface {
+interface ClienteJuridicoInterface
+{
+    public function getId();
+    public function getRazao();
+    public function getCnpj();
+
 
 }

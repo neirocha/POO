@@ -6,6 +6,8 @@
  * Time: 09:53
  */
 
-interface EnderecoDeCobranca {
+interface EnderecoDeCobranca
+{
+    public function getEnderecoDeCobranca();
 
 }
