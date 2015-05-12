@@ -21,10 +21,35 @@ class Cliente implements ClienteInterface, EnderecoDeCobranca, GrauDeImportancia
     protected $endereco;
     protected $telefone;
     protected $email;
+    protected $enderecoDeCobranca;
+    protected $grauDeImportancia;
+
+    public function setEnderecoDeCobranca($enderecoDeCobranca)
+    {
+        $this->enderecoDeCobranca = $enderecoDeCobranca;
+        return $this;
+    }
+
+    public function getEnderecoDeCobranca()
+    {
+        return $this->enderecoDeCobranca;
+    }
+
+    public function setGrauDeImportancia($grauDeImportancia)
+    {
+        $this->grauDeImportancia = $grauDeImportancia;
+        return $this;
+    }
+
+    public function getGrauDeImportancia()
+    {
+        return $this;
+    }
 
     public function setId($id)
     {
         $this->id = $id;
+        return $this;
     }
 
     public function getId()
@@ -35,6 +60,7 @@ class Cliente implements ClienteInterface, EnderecoDeCobranca, GrauDeImportancia
     public function setNome($nome)
     {
         $this->nome = $nome;
+        return $this;
     }
 
     public function getNome()
@@ -45,6 +71,7 @@ class Cliente implements ClienteInterface, EnderecoDeCobranca, GrauDeImportancia
     public function setCpf($cpf)
     {
         $this->cpf = $cpf;
+        return $this;
     }
 
     public function getCpf()
@@ -55,6 +82,7 @@ class Cliente implements ClienteInterface, EnderecoDeCobranca, GrauDeImportancia
     public function setEndereco($endereco)
     {
         $this->endereco = $endereco;
+        return $this;
     }
 
     public function getEndereco()
@@ -65,6 +93,7 @@ class Cliente implements ClienteInterface, EnderecoDeCobranca, GrauDeImportancia
     public function setTelefone($telefone)
     {
         $this->telefone = $telefone;
+        return $this;
     }
 
     public function getTelefone()
@@ -75,6 +104,7 @@ class Cliente implements ClienteInterface, EnderecoDeCobranca, GrauDeImportancia
     public function setEmail($email)
     {
         $this->email = $email;
+        return $this;
     }
 
     public function getEmail()

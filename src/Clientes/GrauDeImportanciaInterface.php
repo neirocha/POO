@@ -8,5 +8,5 @@
 
 interface GrauDeImportanciaInterface
 {
-    public function getGI();
+    public function getGrauDeImportancia();
 }
