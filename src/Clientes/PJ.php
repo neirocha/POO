@@ -8,7 +8,7 @@
 
 require_once "ClienteJuridicoInterface.php";
 
-class PJ extends Cliente implements ClienteJuridicoInterface, ClienteInterface
+class PJ extends Cliente implements ClienteJuridicoInterface
 {
 
     protected $cnpj;
