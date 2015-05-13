@@ -10,6 +10,10 @@ interface ClienteJuridicoInterface
 {
     public function getId();
     public function getRazaoSocial();
+
+    /**
+     * @return mixed
+     */
     public function getCnpj();
 
 

@@ -6,7 +6,9 @@
  * Time: 17:14
  */
 
-class PJ extends Cliente implements ClienteJuridicoInterface
+require_once "ClienteJuridicoInterface.php";
+
+class PJ extends Cliente implements ClienteJuridicoInterface, ClienteInterface
 {
 
     protected $cnpj;
@@ -17,6 +19,7 @@ class PJ extends Cliente implements ClienteJuridicoInterface
         $this->cnpj = $cnpj;
         return $this;
     }
+
     public function getCnpj()
     {
         return $this->cnpj;
@@ -26,6 +29,14 @@ class PJ extends Cliente implements ClienteJuridicoInterface
     {
         $this->razaoSocial = $razaoSocial;
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRazaoSocial()
+    {
+        return $this->razaoSocial;
     }
 
 }

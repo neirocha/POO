@@ -1,7 +1,10 @@
 <?php
 
 require_once  "../src/Clientes/Cliente.php";
-
+require_once "../src/Clientes/PJ.php";
+require_once "../src/Clientes/PF.php";
+require_once "../src/Clientes/ClienteJuridicoInterface.php";
+require_once "../src/Clientes/ClienteInterface.php";
 
 
 
@@ -14,12 +17,13 @@ $cliente1->setTelefone("(71)8782-5018");
 $cliente1->setEmail("saturncomunicacao@hotmail.com");
 
 $cliente2 = new Cliente();
-$cliente2->setId(2);
-$cliente2->setNome("Carlos ");
-$cliente2->setCpf("223.456.789-20");
-$cliente2->setEndereco("Rua C");
-$cliente2->setTelefone("(71)8782-5018");
-$cliente2->setEmail("liamodass@hotmail.com");
+$cliente2->setId(2)
+        ->setRazaoSocial("Pao de acucar ")
+        ->setCnpj("05.362.256/0001-25")
+        ->setEndereco("Rua C")
+        ->setTelefone("(71)8782-5018")
+        ->setEmail("liamodass@hotmail.com")
+;
 
 $cliente3 = new Cliente();
 $cliente3->setId(3);
@@ -31,8 +35,8 @@ $cliente3->setEmail("santosterra@hotmail.com");
 
 $cliente4 = new Cliente();
 $cliente4->setId(4);
-$cliente4->setNome("Antonio");
-$cliente4->setCpf("423.456.789-40");
+$cliente4->setRazaoSocial("Estacio de sa");
+$cliente4->setCnpj("03.332.432/0001-23");
 $cliente4->setEndereco("Rua E");
 $cliente4->setTelefone("(74)8782-5048");
 $cliente4->setEmail("amostradelta@hotmail.com");
@@ -47,8 +51,8 @@ $cliente5->setEmail("crepusculo@hotmail.com");
 
 $cliente6 = new Cliente();
 $cliente6->setId(6);
-$cliente6->setNome("Luciano");
-$cliente6->setCpf("623.456.789-60");
+$cliente6->setRazaoSocial("Uniao");
+$cliente6->setCnpj("07.367.453/0001-66");
 $cliente6->setEndereco("Rua G");
 $cliente6->setTelefone("(76)8782-5068");
 $cliente6->setEmail("lucasls@hotmail.com");
@@ -63,8 +67,8 @@ $cliente7->setEmail("lucaslsanted@hotmail.com");
 
 $cliente8 = new Cliente();
 $cliente8->setId(8);
-$cliente8->setNome("Gabriel");
-$cliente8->setCpf("823.456.789-80");
+$cliente8->setRazaoSocial("Lia Modas");
+$cliente8->setCnpj("25.342.876/0001-43");
 $cliente8->setEndereco("Rua I");
 $cliente8->setTelefone("(78)8782-5088");
 $cliente8->setEmail("testede@hotmail.com");
@@ -79,8 +83,8 @@ $cliente9->setEmail("testedeglogo@hotmail.com");
 
 $cliente10 = new Cliente();
 $cliente10->setId(10);
-$cliente10->setNome("Paraiba");
-$cliente10->setCpf("1023.456.789-10");
+$cliente4->setRazaoSocial("Quaterback");
+$cliente4->setCnpj("09.975.735/0001-55");
 $cliente10->setEndereco("Rua L");
 $cliente10->setTelefone("(710)8782-50108");
 $cliente10->setEmail("amarok@hotmail.com");

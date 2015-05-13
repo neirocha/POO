@@ -6,6 +6,8 @@
  * Time: 17:12
  */
 
+require_once "ClienteFisicoInterface.php";
+
 class PF extends Cliente implements ClienteFisicoInterface
 {
     protected $cpf;
