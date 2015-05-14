@@ -14,6 +14,10 @@ class PJ extends Cliente implements ClienteJuridicoInterface
     protected $cnpj;
     protected $razaoSocial;
 
+    /**
+     * @param $cnpj
+     * @return $this
+     */
     public function setCnpj($cnpj)
     {
         $this->cnpj = $cnpj;

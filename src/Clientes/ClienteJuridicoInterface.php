@@ -8,9 +8,9 @@
 
 interface ClienteJuridicoInterface
 {
-    public function getId();
-    public function getRazaoSocial();
-    public function getCnpj();
+
+    public function setRazaoSocial($razaoSocial);
+    public function setCnpj($cnpj);
 
 
 }

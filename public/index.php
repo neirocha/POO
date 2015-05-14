@@ -15,6 +15,7 @@ $cliente1->setId(1)
         ->setEndereco("Rua B")
         ->setTelefone("(71)8782-5018")
         ->setEmail("saturncomunicacao@hotmail.com")
+        ->setGrauDeImportancia(3)
 ;
 
 $cliente2 = new Cliente();

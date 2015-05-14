@@ -8,5 +8,5 @@
 
 interface GrauDeImportanciaInterface
 {
-    public function getGrauDeImportancia();
+    public function setGrauDeImportancia($grauDeImportancia);
 }

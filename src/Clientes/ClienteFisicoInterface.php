@@ -8,12 +8,10 @@
 
 interface ClienteFisicoInterface
 {
-    public function getId();
-    public function getNome();
+
     public function getCpf();
-    public function getEndereco();
-    public function getTelefone();
-    public function getEmail();
+    public function setCpf($cpf);
+
 
 
 }

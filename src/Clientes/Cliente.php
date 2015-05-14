@@ -7,25 +7,27 @@
  *
  **/
 
-require_once __DIR__."/ClienteInterface.php";
+
 require_once __DIR__."/EnderecoDeCobranca.php";
 require_once __DIR__."/GrauDeImportanciaInterface.php";
+require_once __DIR__."/ClienteFisicoInterface.php";
+require_once __DIR__."/ClienteInterface.php";
 require_once __DIR__."/ClienteJuridicoInterface.php";
+require_once __DIR__."/PF.php";
+require_once __DIR__."/PJ.php";
 
 
 
-class Cliente implements ClienteInterface, EnderecoDeCobranca, GrauDeImportanciaInterface, ClienteJuridicoInterface
+class Cliente implements EnderecoDeCobranca, GrauDeImportanciaInterface
 {
     protected $id;
     protected $nome;
-    protected $cpf;
     protected $endereco;
     protected $telefone;
     protected $email;
     protected $enderecoDeCobranca;
     protected $grauDeImportancia;
-    protected $razaoSocial;
-    protected $cnpj;
+
 
     public function setEnderecoDeCobranca($enderecoDeCobranca)
     {
@@ -71,16 +73,7 @@ class Cliente implements ClienteInterface, EnderecoDeCobranca, GrauDeImportancia
         return $this->nome;
     }
 
-    public function setCpf($cpf)
-    {
-        $this->cpf = $cpf;
-        return $this;
-    }
 
-    public function getCpf()
-    {
-        return $this->cpf;
-    }
 
     public function setEndereco($endereco)
     {
@@ -115,25 +108,4 @@ class Cliente implements ClienteInterface, EnderecoDeCobranca, GrauDeImportancia
         return $this->email;
     }
 
-    public function setRazaoSocial($razaoSocial)
-    {
-        $this->razaoSocial = $razaoSocial;
-        return $this;
-    }
-    public function getRazaoSocial()
-    {
-       return $this->razaoSocial;
-    }
-
-    public function setCnpj($cnpj)
-    {
-        $this->cnpj = $cnpj;
-        return $this;
-
-    }
-
-    public function getCnpj()
-    {
-        return $this-> cnpj;
-    }
 }
