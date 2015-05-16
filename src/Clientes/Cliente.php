@@ -8,14 +8,8 @@
  **/
 
 
-require_once __DIR__."/EnderecoDeCobranca.php";
-require_once __DIR__."/GrauDeImportanciaInterface.php";
-require_once __DIR__."/ClienteFisicoInterface.php";
-require_once __DIR__."/ClienteInterface.php";
-require_once __DIR__."/ClienteJuridicoInterface.php";
-require_once __DIR__."/PF.php";
-require_once __DIR__."/PJ.php";
-
+require_once "EnderecoDeCobranca.php";
+require_once "GrauDeImportanciaInterface.php";
 
 
 class Cliente implements EnderecoDeCobranca, GrauDeImportanciaInterface
@@ -26,7 +20,55 @@ class Cliente implements EnderecoDeCobranca, GrauDeImportanciaInterface
     protected $telefone;
     protected $email;
     protected $enderecoDeCobranca;
-    protected $grauDeImportancia;
+    protected $grauDeImportanciaInterface;
+    protected $cpf;
+    protected $cnpj;
+    protected $razaoSocial;
+
+    /**
+     * @param $cnpj
+     * @return $this
+     */
+    public function setCnpj($cnpj)
+    {
+        $this->cnpj = $cnpj;
+        return $this;
+    }
+
+    public function getCnpj()
+    {
+        return $this->cnpj;
+    }
+
+    /**
+     * @param $razaoSocial
+     * @return $this
+     */
+    public function setRazaoSocial($razaoSocial)
+    {
+        $this->razaoSocial = $razaoSocial;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRazaoSocial()
+    {
+        return $this->razaoSocial;
+    }
+
+
+    public function setCpf($cpf)
+    {
+        $this->cpf = $cpf;
+        return $this;
+    }
+
+    public function getCpf()
+    {
+        return $this->cpf;
+    }
 
 
     public function setEnderecoDeCobranca($enderecoDeCobranca)
@@ -40,13 +82,16 @@ class Cliente implements EnderecoDeCobranca, GrauDeImportanciaInterface
         return $this->enderecoDeCobranca;
     }
 
-    public function setGrauDeImportancia($grauDeImportancia)
+    public function setGrauDeImportanciaInterface($grauDeImportanciaInterface)
     {
-        $this->grauDeImportancia = $grauDeImportancia;
+        $this->grauDeImportanciaInterface = $grauDeImportanciaInterface;
         return $this;
     }
 
-    public function getGrauDeImportancia()
+    /**
+     * @return $this
+     */
+    public function getGrauDeImportanciaInterface()
     {
         return $this;
     }
@@ -72,8 +117,6 @@ class Cliente implements EnderecoDeCobranca, GrauDeImportanciaInterface
     {
         return $this->nome;
     }
-
-
 
     public function setEndereco($endereco)
     {

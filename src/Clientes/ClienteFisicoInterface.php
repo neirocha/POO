@@ -9,8 +9,8 @@
 interface ClienteFisicoInterface
 {
 
-    public function getCpf();
     public function setCpf($cpf);
+    public function getCpf();
 
 
 

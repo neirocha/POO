@@ -1,11 +1,12 @@
 <?php
-
 require_once  "../src/Clientes/Cliente.php";
 require_once "../src/Clientes/PJ.php";
 require_once "../src/Clientes/PF.php";
 require_once "../src/Clientes/ClienteJuridicoInterface.php";
 require_once "../src/Clientes/ClienteInterface.php";
 require_once "../src/Clientes/ClienteFisicoInterface.php";
+require_once "../src/Clientes/GrauDeImportanciaInterface.php";
+ 
 
 
 $cliente1 = new Cliente();
@@ -15,7 +16,7 @@ $cliente1->setId(1)
         ->setEndereco("Rua B")
         ->setTelefone("(71)8782-5018")
         ->setEmail("saturncomunicacao@hotmail.com")
-        ->setGrauDeImportancia(3)
+        ->setGrauDeImportanciaInterface(2)
 ;
 
 $cliente2 = new Cliente();
@@ -25,6 +26,8 @@ $cliente2->setId(2)
         ->setEndereco("Rua C")
         ->setTelefone("(71)8782-5018")
         ->setEmail("liamodass@hotmail.com")
+        ->setGrauDeImportanciaInterface(5)
+        ->setEnderecoDeCobranca("Rua da Cobranca de cima")
 ;
 
 $cliente3 = new Cliente();
@@ -34,15 +37,19 @@ $cliente3->setId(3)
         ->setEndereco("Rua D")
         ->setTelefone("(73)8782-5038")
         ->setEmail("santosterra@hotmail.com")
+        ->setGrauDeImportanciaInterface(3)
+
 ;
 
 $cliente4 = new Cliente();
 $cliente4->setId(4)
         ->setRazaoSocial("Estacio de sa")
         ->setCnpj("03.332.432/0001-23")
-        ->setEndereco("Rua E")
+        ->setEndereco("Rua Anselmo costa")
         ->setTelefone("(74)8782-5048")
         ->setEmail("amostradelta@hotmail.com")
+        ->setGrauDeImportanciaInterface(5)
+        ->setEnderecoDeCobranca("Rua E")
 ;
 
 $cliente5 = new Cliente();
@@ -52,7 +59,8 @@ $cliente5->setId(5)
         ->setEndereco("Rua F")
         ->setTelefone("(75)8782-5058")
         ->setEmail("crepusculo@hotmail.com")
-;
+        ->setGrauDeImportanciaInterface(1)
+        ;
 
 $cliente6 = new Cliente();
 $cliente6->setId(6)
@@ -61,6 +69,8 @@ $cliente6->setId(6)
         ->setEndereco("Rua G")
         ->setTelefone("(76)8782-5068")
         ->setEmail("lucasls@hotmail.com")
+        ->setGrauDeImportanciaInterface(2)
+        ->setEnderecoDeCobranca("Rua São marcos")
 ;
 
 $cliente7 = new Cliente();
@@ -70,6 +80,7 @@ $cliente7->setId(7)
         ->setEndereco("Rua H")
         ->setTelefone("(77)8782-5078")
         ->setEmail("lucaslsanted@hotmail.com")
+        ->setGrauDeImportanciaInterface(3)
 ;
 
 $cliente8 = new Cliente();
@@ -79,6 +90,8 @@ $cliente8->setId(8)
         ->setEndereco("Rua I")
         ->setTelefone("(78)8782-5088")
         ->setEmail("testede@hotmail.com")
+        ->setGrauDeImportanciaInterface(1)
+        ->setEnderecoDeCobranca("Rua das lucindas")
 ;
 
 $cliente9 = new Cliente();
@@ -88,6 +101,7 @@ $cliente9->setId(9)
         ->setEndereco("Rua J")
         ->setTelefone("(79)8782-5098")
         ->setEmail("testedeglogo@hotmail.com")
+        ->setGrauDeImportanciaInterface(3)
 ;
 
 $cliente10 = new Cliente();
@@ -97,6 +111,8 @@ $cliente10->setId(10)
         ->setEndereco("Rua L")
         ->setTelefone("(710)8782-50108")
         ->setEmail("amarok@hotmail.com")
+        ->setGrauDeImportanciaInterface(5)
+        ->setEnderecoDeCobranca("Rua das Quebranças")
 ;
 
 
@@ -136,11 +152,19 @@ $clientes = array(1=>$cliente1,2=>$cliente2, 3=>$cliente3, 4=>$cliente4, 5=>$cli
 
         $id = filter_input(INPUT_GET, "id");
         if($id){
-            echo "<label>Nome: </label> ".$clientes[$id]->getNome()."</br>";
-            echo "<label>CPF: </label> ".$clientes[$id]->getCpf()."</br>";
+            echo "<label>Nome / Razão Social: </label> ".$clientes[$id]->getNome().$clientes[$id]->getRazaoSocial()."</br>";
+            echo "<label>CPF / CNPJ: </label> ".$clientes[$id]->getCpf().$clientes[$id]->getCnpj()."</br>";
             echo "<label>Endereco: </label> ".$clientes[$id]->getEndereco()."</br>";
             echo "<label>Telefone: </label> ".$clientes[$id]->getTelefone()."</br>";
             echo "<label>Email: </label> ".$clientes[$id]->getEmail()."</br>";
+            echo "<label>Grau de Importancia: </label> ".$clientes[$id]->getGrauDeImportanciaInterface()."</br>";
+            if($clientes[$id]->getEnderecoDeCobranca())
+            {
+                echo "<label>Endereco de Cobrança: </label> " . $clientes[$id]->getEnderecoDeCobranca() . "</br>";
+            }
+
+
+
 
         }
 
@@ -156,8 +180,8 @@ $clientes = array(1=>$cliente1,2=>$cliente2, 3=>$cliente3, 4=>$cliente4, 5=>$cli
     <table width="100%">
         <tr>
             <td>&ensp;</td>
-            <td><label>Nome</label></td>
-            <td><label>CPF</label></td>
+            <td><label>Nome / Razão Social</label></td>
+            <td><label>CPF / CNPJ</label></td>
             <td><label>Email</label></td>
         </tr>
         <tr>
@@ -182,11 +206,11 @@ $clientes = array(1=>$cliente1,2=>$cliente2, 3=>$cliente3, 4=>$cliente4, 5=>$cli
             <tr>
 
                 <td>&ensp;</td>
-                <td><?php echo "<a href='?ordem={$ordem}&id={$cliente->getId()}'>".$cliente->getNome()."</a>"; ?><hr> </td>
-                <td><?php echo " {$cliente ->getCpf()}" ?><hr></td>
+                <td><?php echo "<a href='?ordem={$ordem}&id={$cliente->getId()}'>".$cliente->getNome(). $cliente->getRazaoSocial()."</a>"; ?><hr> </td>
+                <td><?php echo $cliente ->getCpf() . $cliente ->getCnpj() ?><hr></td>.
                 <td><?php echo " {$cliente->getEmail()}" ?><hr></td>
             </tr>
-        <?php endforeach; ?>
+        <?php  endforeach; ?>
     </table>
 </fieldset>
 
