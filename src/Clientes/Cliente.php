@@ -24,11 +24,18 @@ class Cliente implements EnderecoDeCobranca, GrauDeImportanciaInterface
     protected $cpf;
     protected $cnpj;
     protected $razaoSocial;
+    protected $tipo;
 
-    /**
-     * @param $cnpj
-     * @return $this
-     */
+
+    public function setTipo($tipo)
+    {
+        $this->tipo = $tipo;
+        return $this;
+    }
+    public function getTipo()
+    {
+        return $this->tipo;
+    }
     public function setCnpj($cnpj)
     {
         $this->cnpj = $cnpj;

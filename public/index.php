@@ -1,38 +1,35 @@
 <?php
-require_once  "../src/Clientes/Cliente.php";
+
 require_once "../src/Clientes/PJ.php";
 require_once "../src/Clientes/PF.php";
-require_once "../src/Clientes/ClienteJuridicoInterface.php";
-require_once "../src/Clientes/ClienteInterface.php";
-require_once "../src/Clientes/ClienteFisicoInterface.php";
-require_once "../src/Clientes/GrauDeImportanciaInterface.php";
+
  
 
+$fisico1 = new PF();
+$fisico2 = new PF();
+$fisico3 = new PF();
+$fisico4 = new PF();
+$fisico5 = new PF();
 
-$cliente1 = new Cliente();
-$cliente1->setId(1)
+$juridico1 = new PJ();
+$juridico2 = new PJ();
+$juridico3 = new PJ();
+$juridico4 = new PJ();
+$juridico5 = new PJ();
+
+
+$fisico1->setId(1)
         ->setNome("Nei Rocha")
+        ->setTipo("Pessoa Fisica")
         ->setCpf("123.456.789-10")
         ->setEndereco("Rua B")
         ->setTelefone("(71)8782-5018")
         ->setEmail("saturncomunicacao@hotmail.com")
         ->setGrauDeImportanciaInterface(2)
 ;
-
-$cliente2 = new Cliente();
-$cliente2->setId(2)
-        ->setRazaoSocial("Pao de acucar ")
-        ->setCnpj("05.362.256/0001-25")
-        ->setEndereco("Rua C")
-        ->setTelefone("(71)8782-5018")
-        ->setEmail("liamodass@hotmail.com")
-        ->setGrauDeImportanciaInterface(5)
-        ->setEnderecoDeCobranca("Rua da Cobranca de cima")
-;
-
-$cliente3 = new Cliente();
-$cliente3->setId(3)
+$fisico2->setId(2)
         ->setNome("Maria")
+        ->setTipo("Pessoa Fisica")
         ->setCpf("323.456.789-30")
         ->setEndereco("Rua D")
         ->setTelefone("(73)8782-5038")
@@ -40,83 +37,88 @@ $cliente3->setId(3)
         ->setGrauDeImportanciaInterface(3)
 
 ;
-
-$cliente4 = new Cliente();
-$cliente4->setId(4)
-        ->setRazaoSocial("Estacio de sa")
-        ->setCnpj("03.332.432/0001-23")
-        ->setEndereco("Rua Anselmo costa")
-        ->setTelefone("(74)8782-5048")
-        ->setEmail("amostradelta@hotmail.com")
-        ->setGrauDeImportanciaInterface(5)
-        ->setEnderecoDeCobranca("Rua E")
-;
-
-$cliente5 = new Cliente();
-$cliente5->setId(5)
+$fisico3->setId(3)
         ->setNome("Lucas")
+        ->setTipo("Pessoa Fisica")
         ->setCpf("523.456.789-50")
         ->setEndereco("Rua F")
         ->setTelefone("(75)8782-5058")
         ->setEmail("crepusculo@hotmail.com")
         ->setGrauDeImportanciaInterface(1)
         ;
-
-$cliente6 = new Cliente();
-$cliente6->setId(6)
-        ->setRazaoSocial("Uniao")
-        ->setCnpj("07.367.453/0001-66")
-        ->setEndereco("Rua G")
-        ->setTelefone("(76)8782-5068")
-        ->setEmail("lucasls@hotmail.com")
-        ->setGrauDeImportanciaInterface(2)
-        ->setEnderecoDeCobranca("Rua São marcos")
-;
-
-$cliente7 = new Cliente();
-$cliente7->setId(7)
+$fisico4->setId(4)
         ->setNome("Jorge")
+        ->setTipo("Pessoa Fisica")
         ->setCpf("723.456.789-70")
         ->setEndereco("Rua H")
         ->setTelefone("(77)8782-5078")
         ->setEmail("lucaslsanted@hotmail.com")
         ->setGrauDeImportanciaInterface(3)
 ;
-
-$cliente8 = new Cliente();
-$cliente8->setId(8)
-        ->setRazaoSocial("Lia Modas")
-        ->setCnpj("25.342.876/0001-43")
-        ->setEndereco("Rua I")
-        ->setTelefone("(78)8782-5088")
-        ->setEmail("testede@hotmail.com")
-        ->setGrauDeImportanciaInterface(1)
-        ->setEnderecoDeCobranca("Rua das lucindas")
-;
-
-$cliente9 = new Cliente();
-$cliente9->setId(9)
+$fisico5->setId(5)
         ->setNome("Lucas")
+        ->setTipo("Pessoa Fisica")
         ->setCpf("923.456.789-90")
         ->setEndereco("Rua J")
         ->setTelefone("(79)8782-5098")
         ->setEmail("testedeglogo@hotmail.com")
         ->setGrauDeImportanciaInterface(3)
 ;
-
-$cliente10 = new Cliente();
-$cliente10->setId(10)
-        ->setRazaoSocial("Quaterback")
-        ->setCnpj("09.975.735/0001-55")
-        ->setEndereco("Rua L")
-        ->setTelefone("(710)8782-50108")
-        ->setEmail("amarok@hotmail.com")
-        ->setGrauDeImportanciaInterface(5)
-        ->setEnderecoDeCobranca("Rua das Quebranças")
+$juridico1->setId(6)
+    ->setRazaoSocial("Pao de acucar ")
+    ->setTipo("Pessoa Juridica")
+    ->setCnpj("05.362.256/0001-25")
+    ->setEndereco("Rua C")
+    ->setTelefone("(71)8782-5018")
+    ->setEmail("liamodass@hotmail.com")
+    ->setGrauDeImportanciaInterface(5)
+    ->setEnderecoDeCobranca("Rua da Cobranca de cima")
+;
+$juridico2->setId(7)
+    ->setRazaoSocial("Estacio de sa")
+    ->setTipo("Pessoa Juridica")
+    ->setCnpj("03.332.432/0001-23")
+    ->setEndereco("Rua Anselmo costa")
+    ->setTelefone("(74)8782-5048")
+    ->setEmail("amostradelta@hotmail.com")
+    ->setGrauDeImportanciaInterface(5)
+    ->setEnderecoDeCobranca("Rua E")
+;
+$juridico3->setId(8)
+    ->setRazaoSocial("Uniao")
+    ->setTipo("Pessoa Juridica")
+    ->setCnpj("07.367.453/0001-66")
+    ->setEndereco("Rua G")
+    ->setTelefone("(76)8782-5068")
+    ->setEmail("lucasls@hotmail.com")
+    ->setGrauDeImportanciaInterface(2)
+    ->setEnderecoDeCobranca("Rua São marcos")
+;
+$juridico4->setId(9)
+    ->setRazaoSocial("Lia Modas")
+    ->setTipo("Pessoa Juridica")
+    ->setCnpj("25.342.876/0001-43")
+    ->setEndereco("Rua I")
+    ->setTelefone("(78)8782-5088")
+    ->setEmail("testede@hotmail.com")
+    ->setGrauDeImportanciaInterface(1)
+    ->setEnderecoDeCobranca("Rua das lucindas")
+;
+$juridico5->setId(10)
+    ->setRazaoSocial("Quaterback")
+    ->setTipo("Pessoa Juridica")
+    ->setCnpj("09.975.735/0001-55")
+    ->setEndereco("Rua L")
+    ->setTelefone("(710)8782-50108")
+    ->setEmail("amarok@hotmail.com")
+    ->setGrauDeImportanciaInterface(5)
+    ->setEnderecoDeCobranca("Rua das Quebranças")
 ;
 
 
-$clientes = array(1=>$cliente1,2=>$cliente2, 3=>$cliente3, 4=>$cliente4, 5=>$cliente5, 6=>$cliente6, 7=>$cliente7, 8=>$cliente8, 9=>$cliente9, 10=>$cliente10);
+
+
+$clientes = array(1=>$fisico1,2=>$fisico2, 3=>$fisico3, 4=>$fisico4, 5=>$fisico5, 6=>$juridico1, 7=>$juridico2, 8=>$juridico3, 9=>$juridico4, 10=>$juridico5);
 //$clientes = array($cliente1, $cliente2, $cliente3, $cliente4, $cliente5, $cliente6, $cliente7, $cliente8, $cliente9, $cliente10);
 ?>
 
@@ -153,6 +155,7 @@ $clientes = array(1=>$cliente1,2=>$cliente2, 3=>$cliente3, 4=>$cliente4, 5=>$cli
         $id = filter_input(INPUT_GET, "id");
         if($id){
             echo "<label>Nome / Razão Social: </label> ".$clientes[$id]->getNome().$clientes[$id]->getRazaoSocial()."</br>";
+            echo "<label>Tipo de Cliente: </label> ".$clientes[$id]->getTipo() ."</br>";
             echo "<label>CPF / CNPJ: </label> ".$clientes[$id]->getCpf().$clientes[$id]->getCnpj()."</br>";
             echo "<label>Endereco: </label> ".$clientes[$id]->getEndereco()."</br>";
             echo "<label>Telefone: </label> ".$clientes[$id]->getTelefone()."</br>";
@@ -184,6 +187,7 @@ $clientes = array(1=>$cliente1,2=>$cliente2, 3=>$cliente3, 4=>$cliente4, 5=>$cli
         <tr>
             <td>&ensp;</td>
             <td><label>Nome / Razão Social</label></td>
+            <td><label>Tipo de Cliente</label></td>
             <td><label>CPF / CNPJ</label></td>
             <td><label>Email</label></td>
         </tr>
@@ -210,7 +214,8 @@ $clientes = array(1=>$cliente1,2=>$cliente2, 3=>$cliente3, 4=>$cliente4, 5=>$cli
 
                 <td>&ensp;</td>
                 <td><?php echo "<a href='?ordem={$ordem}&id={$cliente->getId()}'>".$cliente->getNome(). $cliente->getRazaoSocial()."</a>"; ?><hr> </td>
-                <td><?php echo $cliente ->getCpf() . $cliente ->getCnpj() ?><hr></td>.
+                <td><?php echo $cliente ->getTipo() ?><hr></td>
+                <td><?php echo $cliente ->getCpf() . $cliente ->getCnpj() ?><hr></td>
                 <td><?php echo " {$cliente->getEmail()}" ?><hr></td>
             </tr>
         <?php  endforeach; ?>
