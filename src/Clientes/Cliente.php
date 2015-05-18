@@ -88,12 +88,9 @@ class Cliente implements EnderecoDeCobranca, GrauDeImportanciaInterface
         return $this;
     }
 
-    /**
-     * @return $this
-     */
     public function getGrauDeImportanciaInterface()
     {
-        return $this;
+        return $this->grauDeImportanciaInterface;
     }
 
     public function setId($id)

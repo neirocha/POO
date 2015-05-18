@@ -9,6 +9,6 @@
 interface GrauDeImportanciaInterface
 {
 
-    //public function setGrauDeImportanciaInterface($grauDeImportanciaInterface);
+    //public function setGrauDeImportanciaInterface($gi);
     public function getGrauDeImportanciaInterface();
 }

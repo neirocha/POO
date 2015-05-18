@@ -157,10 +157,13 @@ $clientes = array(1=>$cliente1,2=>$cliente2, 3=>$cliente3, 4=>$cliente4, 5=>$cli
             echo "<label>Endereco: </label> ".$clientes[$id]->getEndereco()."</br>";
             echo "<label>Telefone: </label> ".$clientes[$id]->getTelefone()."</br>";
             echo "<label>Email: </label> ".$clientes[$id]->getEmail()."</br>";
-            echo "<label>Grau de Importancia: </label> ".$clientes[$id]->getGrauDeImportanciaInterface()."</br>";
+             echo "<label>Grau de Importancia: </label> ";
+            for ($i = 0; $i < $clientes[$id]->getGrauDeImportanciaInterface(); $i++) {
+                echo "<i class='glyphicon glyphicon-star'></i>";
+            };
             if($clientes[$id]->getEnderecoDeCobranca())
             {
-                echo "<label>Endereco de Cobrança: </label> " . $clientes[$id]->getEnderecoDeCobranca() . "</br>";
+                echo "</br><label>Endereco de Cobrança: </label> " . $clientes[$id]->getEnderecoDeCobranca() . "</br>";
             }
 
 
