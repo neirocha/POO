@@ -5,7 +5,7 @@
  * Date: 11/05/2015
  * Time: 17:14
  */
-require_once "Cliente.php";
+require_once "ClienteAbstract.php";
 require_once "ClienteJuridicoInterface.php";
 
 class PJ extends Cliente implements ClienteJuridicoInterface

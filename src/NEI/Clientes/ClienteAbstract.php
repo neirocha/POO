@@ -1,12 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Nei Rocha
- * Date: 29/04/2015
- * Time: 17:44
- *
- **/
 
+namespace NEI\Clientes;
 
 require_once "EnderecoDeCobranca.php";
 require_once "GrauDeImportanciaInterface.php";

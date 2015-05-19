@@ -1,11 +1,16 @@
 <?php
 
-require_once "../src/Clientes/PJ.php";
-require_once "../src/Clientes/PF.php";
+define('CLASS_DIR', 'src/');
+set_include_path(get_include_path().PATH_SEPARATOR.CLASS_DIR);
+spl_autoload_register();
+
+use NEI\Clientes\Types;
+use NEI\Clientes\Types;
+
 
  
 
-$fisico1 = new PF();
+$fisico1 = new NEI\PF();
 $fisico2 = new PF();
 $fisico3 = new PF();
 $fisico4 = new PF();
