@@ -2,11 +2,11 @@
 
 namespace NEI\Clientes;
 
-require_once "EnderecoDeCobranca.php";
-require_once "GrauDeImportanciaInterface.php";
+use NEI\Clientes\EnderecoDeCobranca;
+use NEI\Clientes\GrauDeImportanciaInterface;
 
 
-class Cliente implements EnderecoDeCobranca, GrauDeImportanciaInterface
+abstract class ClienteAbstract implements EnderecoDeCobranca, GrauDeImportanciaInterface
 {
     protected $id;
     protected $nome;

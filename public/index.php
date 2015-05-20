@@ -1,26 +1,21 @@
 <?php
 
-define('CLASS_DIR', 'src/');
+define('CLASS_DIR', __DIR__ . "/../src/");
 set_include_path(get_include_path().PATH_SEPARATOR.CLASS_DIR);
 spl_autoload_register();
 
-use NEI\Clientes\Types;
-use NEI\Clientes\Types;
 
+    $fisico1 = new NEI\Clientes\Types\PF();
+    $fisico2 = new NEI\Clientes\Types\PF();
+    $fisico3 = new NEI\Clientes\Types\PF();
+    $fisico4 = new NEI\Clientes\Types\PF();
+    $fisico5 = new NEI\Clientes\Types\PF();
 
- 
-
-$fisico1 = new NEI\PF();
-$fisico2 = new PF();
-$fisico3 = new PF();
-$fisico4 = new PF();
-$fisico5 = new PF();
-
-$juridico1 = new PJ();
-$juridico2 = new PJ();
-$juridico3 = new PJ();
-$juridico4 = new PJ();
-$juridico5 = new PJ();
+    $juridico1 = new NEI\Clientes\Types\PJ();
+    $juridico2 = new NEI\Clientes\Types\PJ();
+    $juridico3 = new NEI\Clientes\Types\PJ();
+    $juridico4 = new NEI\Clientes\Types\PJ();
+    $juridico5 = new NEI\Clientes\Types\PJ();
 
 
 $fisico1->setId(1)

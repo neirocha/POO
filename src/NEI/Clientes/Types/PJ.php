@@ -1,14 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Nei Rocha
- * Date: 11/05/2015
- * Time: 17:14
- */
-require_once "ClienteAbstract.php";
-require_once "ClienteJuridicoInterface.php";
 
-class PJ extends Cliente implements ClienteJuridicoInterface
+namespace NEI\Clientes\Types;
+
+use NEI\Clientes\ClienteAbstract;
+use NEI\Clientes\ClienteJuridicoInterface;
+
+class PJ extends ClienteAbstract implements ClienteJuridicoInterface
 {
 
     protected $cnpj;

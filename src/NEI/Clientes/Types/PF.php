@@ -1,15 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Nei Rocha
- * Date: 11/05/2015
- * Time: 17:12
- */
 
- require_once "ClienteAbstract.php";
- require_once "ClienteFisicoInterface.php";
+namespace NEI\Clientes\Types;
 
-class PF extends Cliente implements ClienteFisicoInterface
+use \NEI\Clientes\ClienteAbstract;
+use \NEI\Clientes\ClienteFisicoInterface;
+
+class PF extends ClienteAbstract implements ClienteFisicoInterface
 {
     protected $cpf;
 
