@@ -22,33 +22,45 @@ class Persistir
         $this->clientes[] = $cliente;
     }
 
+    /**
+     *
+     */
     public function flush()
     {
         foreach($this->clientes as $cliente)
         {
             // sua lógica para gravar os dados
+
+            $conexao = new Conexao();
             try {
-                if (method_exists($cliente, "getCpf")) {
-                    $stmt = $this->pdo->prepare("INSERT INTO PessoaFisica(nome,cpf,endereco,endCob,telefone,grau, tipo) VALUES(:nome,:cpf,:endereco,:endCob,:telefone,:grau, :tipo)");
-                    $cpf = $cliente->getCpf();
-                    $nome = $cliente->getNome();
-                    $stmt->bindParam(":cpf", $cpf);
-                    $stmt->bindValue(":tipo", "Pessoa Fissica");
-                } else {
-                    $stmt = $this->pdo->prepare("INSERT INTO PessoaJuridica(razaoSocial,cnpj,endereco,endCob,telefone,grau, tipo) VALUES(:razaoSocial,:cnpj,:endereco,:endCob,:telefone,:grau, :tipo)");
+                if (method_exists($cliente, "getCnpj")) {
+                    $stmt = $conexao->getPdo()->prepare("INSERT INTO pessoajuridica(nome,cnpj,endereco,email,endCob,telefone,grau,tipo) VALUES(:nome,:cnpj,:endereco,:email,:endCob,:telefone,:grau,:tipo)");
                     $cnpj = $cliente->getCnpj();
-                    $razaoSocial = $cliente->getRazaoSocial();
-                    $stmt->bindParam(":razaoSocial", $razaoSocial);
+                    $nome = $cliente->getRazaoSocial();
+
+                    $stmt->bindParam(":nome", $nome);
                     $stmt->bindParam(":cnpj", $cnpj);
                     $stmt->bindValue(":tipo", "Pessoa Juridica");
+                } else{
+                    $stmt = $conexao->getPdo()->prepare("INSERT INTO pessoafisica(nome,cpf,endereco,email,endCob,telefone,grau,tipo) VALUES(:nome,:cpf,:endereco,:email,:endCob,:telefone,:grau,:tipo)");
+                    $cpf = $cliente->getCpf();
+                    $nome = $cliente->getNome();
+
+                    $stmt->bindParam(":nome", $nome);
+                    $stmt->bindParam(":cpf", $cpf);
+                    $stmt->bindValue(":tipo", "Pessoa Fissica");
                 }
+
 
                 $endereco = $cliente->getEndereco();
                 $endCob = $cliente->getEnderecoDeCobranca();
+                $email = $cliente->getEmail();
                 $telefone = $cliente->getTelefone();
                 $grau = $cliente->getGrauDeImportanciaInterface();
 
+
                 $stmt->bindParam(":endereco", $endereco);
+                $stmt->bindParam(":email", $email);
                 $stmt->bindParam(":endCob", $endCob);
                 $stmt->bindParam(":telefone", $telefone);
                 $stmt->bindParam(":grau", $grau);
@@ -57,7 +69,7 @@ class Persistir
                     print_r($stmt->errorInfo());
                 }
             } catch (\PDOException $ex) {
-                echo "Erro ao inserir dados: " . $ex->getMessage();
+                echo "<br>Erro ao inserir dados: <br>" . $ex->getMessage();
             }
 
         }
