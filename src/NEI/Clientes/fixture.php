@@ -155,3 +155,4 @@ $persistir->persist($juridico4);
 $persistir->persist($juridico5);
 $persistir->flush();
 
+echo "Tabelas Criadas e preenchidas com sucesso!";
