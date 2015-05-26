@@ -6,7 +6,9 @@ spl_autoload_register();
 
 $conexao = new \NEI\BancoDeDados\Conexao();
 $db      = new \NEI\Clientes\Listar($conexao->getPdo());
+$select = new \NEI\Clientes\ClienteSelecionado($conexao->getPdo());
 
+$selecionado = $select->listarcliente();
 $clientes = $db->listar();
 
 
@@ -57,18 +59,29 @@ if($data == 'desc') {
         $id = filter_input(INPUT_GET, "id");
         if($id) {
 
-            echo "<label>Nome / Razão Social: </label> </br>";
-            echo "<label>Tipo de Cliente: </label></br>";
-            echo "<label>CPF / CNPJ: </label></br>";
-            echo "<label>Endereco: </label></br>";
-            echo "<label>Telefone: </label></br>";
-            echo "<label>Email: </label></br>";
+
+            if ($selecionado['tipo'] == "Pessoa Fissica") {
+                echo "<label>Nome: </label> " . $selecionado['nome'] . "</br>";
+                echo "<label>Tipo de Cliente: </label> " . $selecionado['tipo'] . "</br>";
+                echo "<label>CPF: </label> " . $selecionado['cpf'] . "</br>";
+            } else {
+                echo "<label>Razão Social: </label> " . $selecionado['nome'] . "</br>";
+                echo "<label>Tipo de Cliente: </label> " . $selecionado['tipo'] . "</br>";
+                echo "<label>CNPJ: </label> " . $selecionado['cnpj'] . "</br>";
+            }
+
+            echo "<label>Endereco: </label> " . $selecionado['endereco'] . "</br>";
+            echo "<label>Telefone: </label> " . $selecionado['telefone'] . "</br>";
+            echo "<label>Email: </label> " . $selecionado['email'] . "</br>";
             echo "<label>Grau de Importancia: </label> ";
-            echo "<i class='glyphicon glyphicon-star'></i>";
-            echo "</br><label>Endereco de Cobrança: </label></br>";
+            for ($i = 0; $i <= $selecionado['grau']; $i++) {
+                echo "<i class='glyphicon glyphicon-star'></i>";
+            }
 
+            if ($selecionado['tipo'] == "Pessoa Juridica") {
+                echo "</br><label>Endereco de Cobrança: </label>" . $selecionado['endCob'] . "</br>";
+            }
         }
-
         ?>
     </div>
 </div>
@@ -107,7 +120,7 @@ if($data == 'desc') {
             <tr>
 
                 <td>&ensp;</td>
-                <td><a href="?id=<?=$cliente['id'];?>"> <?=$cliente['nome'];?></a><hr> </td>
+                <td><a href="?id=<?=$cliente['id'];?>&tipo=<?=$cliente['tipo'];?>"> <?=$cliente['nome'];?></a><hr> </td>
                 <td><?=$cliente['tipo'];?><hr></td>
                 <td><?=$cliente['cpf'];?><hr></td>
                 <td><?=$cliente['email'];?><hr></td>
